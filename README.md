@@ -1,4 +1,4 @@
-#Set Up
+# Set Up
 For install .dotfiles directory should be in $HOME.
 
 symbolic link commands
