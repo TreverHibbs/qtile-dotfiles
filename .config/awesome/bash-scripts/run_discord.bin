@@ -1,0 +1,2 @@
+#!/bin/bash
+pgrep -x Discord >/dev/null && echo "Process found" || discord
