@@ -184,6 +184,7 @@ set undofile
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'peterhoeg/vim-qml'
 Plug 'edtsft/vim-qrc'
 " latex plugin for vim
@@ -193,7 +194,8 @@ Plug 'peitalin/vim-jsx-typescript'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
-Plug 'ap/vim-css-color'
+" Plug 'ap/vim-css-color'
+Plug 'lilydjwg/colorizer'
 Plug 'dylanaraps/wal.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'maxmellon/vim-jsx-pretty'
@@ -203,6 +205,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'valloric/youcompleteme'
 " Plug 'scrooloose/syntastic'
 Plug 'w0rp/ale'
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
 
 call plug#end()
 
@@ -220,8 +223,16 @@ map <leader>cll <ESC>:lclose<CR>
 map <leader>qf <ESC>:copen<CR>
 map <leader>cqf <ESC>:cclose<CR>
 
+map <leader>] <ESC>:ALEGoToDefinition<CR>
+
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
+
+let g:ale_c_parse_compile_commands = 1
+" let g:ale_c_always_make = 1
+
+" let g:ale_linters_explicit = 1
+" let g:ale_linters = {'typescriptreact': ['eslint']}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => syntastic
@@ -270,12 +281,9 @@ let g:vimtex_view_method = 'zathura'
 
 " set colorcolumn=80
 set t_Co=256
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
 
 " set colorscheme for compatibility with pywal tool
-colorschem kikiDark
+colorscheme kikiDark
 
 " set the color of the right column to 5
 hi ColorColumn ctermbg=1
@@ -306,6 +314,12 @@ let g:autoformat_remove_trailing_spaces = 0
 let g:formatdef_my_custom_tex = '"latexindent"'
 let g:formatters_tex = ['my_custom_tex']
 
+let g:formatdef_my_custom_typescriptreact = '"prettier --parser typescript"'
+let g:formatters_typescriptreact = ['my_custom_typescriptreact']
+
+let g:formatdef_my_custom_cpp = '"clang-format"'
+let g:formatters_cpp = ['my_custom_cpp']
+
 " au BufWrite * :Autoformat
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -313,6 +327,22 @@ let g:formatters_tex = ['my_custom_tex']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command LCDC lcd %:p:h
 command CDC cd %:p:h
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Instant Markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Uncomment to override defaults:
+"let g:instant_markdown_slow = 1
+"let g:instant_markdown_autostart = 0
+"let g:instant_markdown_open_to_the_world = 1
+"let g:instant_markdown_allow_unsafe_content = 1
+"let g:instant_markdown_allow_external_content = 0
+"let g:instant_markdown_mathjax = 1
+"let g:instant_markdown_mermaid = 1
+"let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
+"let g:instant_markdown_autoscroll = 0
+"let g:instant_markdown_port = 8888
+"let g:instant_markdown_python = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General shortuct commands
@@ -326,13 +356,21 @@ nnoremap <leader>html :-1read $HOME/.vim/.skeleton.html
 nnoremap <leader>scss :-1read $HOME/.vim/.skeleton.scss
 nnoremap <leader>js :-1read $HOME/.vim/.skeleton.js
 nnoremap <leader>tex :-1read $HOME/.vim/.skeleton.tex
+nnoremap <leader>py :-1read $HOME/.vim/.skeleton.py
+nnoremap <leader>clang :-1read $HOME/.vim/.skeleton.c
+nnoremap <leader>makefile :-1read $HOME/.vim/.skeleton.makefile
+nnoremap <leader>tmuxpy :-1read $HOME/.vim/.tmux_py_project_skeleton.yml
+nnoremap <leader>cpp :-1read $HOME/.vim/.skeleton.cpp
+nnoremap <leader>makecpp :-1read $HOME/.vim/.skeleton.cpp.makefile
+nnoremap <leader>giti :-1read $HOME/.vim/.skeleton.gitignore
+nnoremap <leader>gitipy :-1read $HOME/.vim/.skeleton.py.gitignore
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => You Complete Me
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set completeopt=menuone
-" g:ycm_add_preview_to_completeopt = 0
+let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_auto_hover = -1
 " let g:ycm_show_diagnostics_ui = 0
 " set python golbal config path
@@ -342,6 +380,12 @@ let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 ""  \  'g:ycm_python_interpreter_path'
 ""  \]
 ""let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
+
+" let g:ycm_show_diagnostics_ui = 0
+"
+" Inorder to generate c++ config use YcmGenerateConfig
+
+nmap <leader>D <plug>(YCMHover)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

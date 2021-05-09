@@ -93,6 +93,12 @@ theme.prompt_bg_cursor = colors["foreground"]
 theme.prompt_fg = colors["foreground"]
 theme.prompt_fg_cursor = colors["foreground"]
 -- ============================================================================
+-- volume bar
+theme.volume_bar_active_background_color = colors["#2c3838"]
+theme.volume_bar_muted_background_color = colors["#2c3838"]
+theme.volume_bar_active_color = colors["#25A39B"]
+theme.volume_bar_muted_color = colors["#5BA78E"]
+-- ============================================================================
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:

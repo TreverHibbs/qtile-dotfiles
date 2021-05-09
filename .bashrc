@@ -143,9 +143,6 @@ export PATH=$PATH:HOME/.local/bin
 export PATH=/home/treverhibbs/bin:$PATH
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 #== ALIASES ==#
@@ -192,7 +189,9 @@ export FZF_DEFAULT_COMMAND="fdfind . -H"
 var_username=$USER
 var_username=${var_username:0:3}
 
-PS1="[\e[0;32m$\e[0m ° \e[1;32m$var_username\e[0m]~§ "
+green=$(tput setaf 3) # \e[36m
+reset=$(tput sgr0)   # \e[0m
+ PS1='\[\e[0;38;5;78m\][\[\e[0;38;5;78m\]\W \[\e[0;38;5;78m\]◊ \[\e[0;38;5;78m\]\u\[\e[0;38;5;78m\]]\[\e[0;38;5;78m\]~\[\e[0;38;5;78m\]Æ \[\e[0m\]' 
 
 #== texlive paths ==#
 export PATH="/home/treverhibbs/.texlive/2020/bin/x86_64-linux:$PATH"
@@ -224,3 +223,8 @@ export PATH="/home/treverhibbs/Documents/apps/tikzit/bin:$PATH"
 #== GO path ==#
 export PATH="$PATH:/user/local/go/bin"
 
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
