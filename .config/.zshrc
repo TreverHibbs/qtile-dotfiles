@@ -23,6 +23,8 @@ ZSH_THEME="robbyrussell"
 
 autoload -Uz compinit
 compinit 
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -117,8 +119,15 @@ source /usr/share/fzf/completion.zsh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Kitty functions
+function kts() {
+    kitty --session ~/.config/kitty/sessions/$1.conf &!
+    # kill -9 $PPID
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
+
 __conda_setup="$('/home/treverhibbs/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"

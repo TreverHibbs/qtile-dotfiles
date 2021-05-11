@@ -64,10 +64,13 @@ set noerrorbells visualbell t_vb=
 set mouse+=a
 
 " Map system keyboard to vim's paste buffer.
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 " Map leader key to a more reachable option namely space.
 let mapleader = " "
+
+" kitty fix
+let &t_ut=''
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -99,7 +102,6 @@ filetype plugin on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim file explorer configurations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => filetype
@@ -191,19 +193,16 @@ Plug 'edtsft/vim-qrc'
 Plug 'lervag/vimtex'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 " Plug 'ap/vim-css-color'
-Plug 'lilydjwg/colorizer'
-Plug 'dylanaraps/wal.vim'
+"Plug 'lilydjwg/colorizer'
+"Plug 'dylanaraps/wal.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-eunuch'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'valloric/youcompleteme'
-" Plug 'scrooloose/syntastic'
 Plug 'w0rp/ale'
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
 
@@ -283,7 +282,7 @@ let g:vimtex_view_method = 'zathura'
 set t_Co=256
 
 " set colorscheme for compatibility with pywal tool
-colorscheme kikiDark
+" colorscheme kikiDark
 
 " set the color of the right column to 5
 hi ColorColumn ctermbg=1
