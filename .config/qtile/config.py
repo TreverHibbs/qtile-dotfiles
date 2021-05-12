@@ -26,7 +26,9 @@
 
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget
+import os
+import subprocess
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
@@ -98,9 +100,13 @@ for i in groups:
         #     desc="move focused window to group {}".format(i.name)),
     ])
 
+layout_theme = {"border_width": 3,
+                "margin": 16,
+                }
+
 layouts = [
-    layout.Columns(border_focus_stack='#d75f5f'),
-    layout.Max(),
+    layout.Columns(border_focus_stack='#d75f5f', **layout_theme),
+    layout.Max(**layout_theme),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -141,7 +147,7 @@ screens = [
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
                 widget.QuickExit(),
             ],
-            24,
+            24, margin=[0, 16, 16, 16] # N E S W
         ),
     ),
 ]
@@ -173,6 +179,12 @@ floating_layout = layout.Floating(float_rules=[
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
+
+# startup subscriptoin
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('/home/treverhibbs/.config/qtile/scripts/autostart.sh')
+    subprocess.call([home])
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

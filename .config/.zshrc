@@ -86,12 +86,24 @@ plugins=(git)
 # the order of these is important
 source $ZSH/oh-my-zsh.sh
 
+# vim mode
 bindkey -v
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh 
 
-#vim mode
+# Change cursor shape for different vi modes.
+# function zle-keymap-select {
+#     if [[ ${KEYMAP} == vicmd ]] ||
+#         [[ $1 = 'block' ]]; then
+#         echo -ne '\e[1 q'
+#     elif [[ ${KEYMAP} == main ]] ||
+#         [[ ${KEYMAP} == viins ]] ||
+#         [[ ${KEYMAP} = '' ]] ||
+#         [[ $1 = 'beam' ]]; then
+#         echo -ne '\e[5 q'
+#     fi
+# }
 
 # User configuration
 
@@ -118,11 +130,18 @@ source /usr/share/fzf/completion.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim="nvim"
 
+export KITTY_SESSIONS=/home/treverhibbs/.config/kitty/sessions
 # Kitty functions
 function kts() {
-    kitty --session ~/.config/kitty/sessions/$1.conf &!
+    kitty --session $KITTY_SESSIONS/$1.conf &!
     # kill -9 $PPID
+}
+
+function kts-new() {
+    cp $KITTY_SESSIONS/default.conf $KITTY_SESSIONS/$1.conf
+    vim $KITTY_SESSIONS/$1.conf
 }
 
 # >>> conda initialize >>>
