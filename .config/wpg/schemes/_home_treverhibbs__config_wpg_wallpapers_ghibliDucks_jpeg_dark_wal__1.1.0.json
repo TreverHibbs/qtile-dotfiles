@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/treverhibbs/.config/wpg/wallpapers/ghibliDucks.jpeg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#362418",
+        "foreground": "#e9e3cb",
+        "cursor": "#e9e3cb"
+    },
+    "colors": {
+        "color0": "#362418",
+        "color1": "#CFAB69",
+        "color2": "#ADC671",
+        "color3": "#7BAB85",
+        "color4": "#AEA991",
+        "color5": "#CDB38D",
+        "color6": "#E9D68C",
+        "color7": "#e9e3cb",
+        "color8": "#a39e8e",
+        "color9": "#CFAB69",
+        "color10": "#ADC671",
+        "color11": "#7BAB85",
+        "color12": "#AEA991",
+        "color13": "#CDB38D",
+        "color14": "#E9D68C",
+        "color15": "#e9e3cb"
+    }
+}

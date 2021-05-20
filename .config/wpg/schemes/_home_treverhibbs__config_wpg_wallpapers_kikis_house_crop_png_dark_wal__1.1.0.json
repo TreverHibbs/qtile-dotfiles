@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/treverhibbs/.config/wpg/wallpapers/kikis_house_crop.png",
+    "alpha": "100",
+
+    "special": {
+        "background": "#0e1c1b",
+        "foreground": "#c5ccc3",
+        "cursor": "#c5ccc3"
+    },
+    "colors": {
+        "color0": "#0e1c1b",
+        "color1": "#5B9A69",
+        "color2": "#6DB66B",
+        "color3": "#95A36E",
+        "color4": "#25A39B",
+        "color5": "#5BA78E",
+        "color6": "#77C499",
+        "color7": "#c5ccc3",
+        "color8": "#898e88",
+        "color9": "#5B9A69",
+        "color10": "#6DB66B",
+        "color11": "#95A36E",
+        "color12": "#25A39B",
+        "color13": "#5BA78E",
+        "color14": "#77C499",
+        "color15": "#c5ccc3"
+    }
+}

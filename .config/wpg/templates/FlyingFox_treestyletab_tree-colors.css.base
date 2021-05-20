@@ -1,0 +1,39 @@
+:root{{ 
+  --dark-0: {color1};
+  --dark-base: {color0};
+  --dark-1: {color0};
+  --dark-2: {color6};
+  --dark-3: {color4};
+  --dark-4: {color2};
+  --light-0: {color7};
+  --light-base: {color3};
+  --light-1: {color2};
+  --light-2: {color2};
+  --light-3: {color2};
+  --light-4: {color3};
+  --accent: {color3};
+  --yellow: {color3};
+  --green: {color2};
+  --red: {color1};
+  --extension-icon-mask: grayscale(85%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%);
+}}
+
+:root.incognito{{ 
+  --dark-0: {color0};
+  --dark-base: {color0};
+  --dark-1: {color1};
+  --dark-2: {color4};
+  --dark-3: {color0};
+  --dark-4: {color0};
+  --light-0: {color3};
+  --light-base: {color3};
+  --light-1: {color2};
+  --light-2: {color2};
+  --light-3: {color2};
+  --light-4: {color2};
+  --accent: {color3};
+  --yellow: {color3};
+  --green: {color2};
+  --red: {color1};
+  --extension-icon-mask: grayscale(85%) invert(13%) sepia(80%) saturate(3107%) hue-rotate(256deg) brightness(84%) contrast(93%);
+}}
