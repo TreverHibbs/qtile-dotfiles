@@ -169,7 +169,12 @@ map <C-l> <C-W>l
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
+map <leader>ts :setlocal spell!<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => hexokinase
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:Hexokinase_highlighters = [ 'virtual' ]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Auto File Creation
@@ -186,26 +191,17 @@ set undofile
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'peterhoeg/vim-qml'
 Plug 'edtsft/vim-qrc'
-" latex plugin for vim
 Plug 'lervag/vimtex'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'edkolev/tmuxline.vim'
-" Plug 'ap/vim-css-color'
-"Plug 'lilydjwg/colorizer'
-"Plug 'dylanaraps/wal.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'maxmellon/vim-jsx-pretty'
-"Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-eunuch'
-"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-"Plug 'valloric/youcompleteme'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'w0rp/ale'
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
+Plug 'deviantfero/wpgtk.vim'
 
 call plug#end()
 
@@ -235,38 +231,9 @@ let g:ale_c_parse_compile_commands = 1
 " let g:ale_linters = {'typescriptreact': ['eslint']}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => syntastic
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" 
-" let g:syntastic_always_populate_loc_list = 1
-" " let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_enable_signs = 1
-" 
-" map <leader>e <ESC>:lnext<CR>
-" map <leader>E <ESC>:lprevious<CR>
-" 
-" map <leader>ll <ESC>:Errors<CR>
-" map <leader>cll <ESC>:lclose<CR>
-" 
-" map <leader>st <ESC>:SyntasticToggleMode<CR>
-" map <leader>sc <ESC>:SyntasticCheck<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => fzf-config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>fo <ESC>:FZF<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-airline-settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:airline_theme='base16_adwaita'
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimtex
@@ -282,11 +249,27 @@ let g:vimtex_view_method = 'zathura'
 " set colorcolumn=80
 set t_Co=256
 
+" Turn on gui colors for css coloring
+set termguicolors
+
 " set colorscheme for compatibility with pywal tool
-" colorscheme kikiDark
+colorscheme wpggui-theme
 
 " set the color of the right column to 5
 hi ColorColumn ctermbg=1
+
+" functions for inspecting syntax highlight stack/group
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+function! SynGroup()                                                            
+    let l:s = synID(line('.'), col('.'), 1)                                       
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FINDING FILES
@@ -301,26 +284,6 @@ hi ColorColumn ctermbg=1
 command! MakeTags !ctags -R .
 command! MakeNodeTags !ctags --exclude=.git --exclude=node_modules --exclude=package.json --exclude=package-lock.json --exclude=tsconfig.json -R .
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Formatting Macro
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <F3> <ESC>:Autoformat<CR>
-command! FormatJson %!python -m json.tool
-
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
-
-let g:formatdef_my_custom_tex = '"latexindent"'
-let g:formatters_tex = ['my_custom_tex']
-
-let g:formatdef_my_custom_typescriptreact = '"prettier --parser typescript"'
-let g:formatters_typescriptreact = ['my_custom_typescriptreact']
-
-let g:formatdef_my_custom_cpp = '"clang-format"'
-let g:formatters_cpp = ['my_custom_cpp']
-
-" au BufWrite * :Autoformat
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Change the local/global Directory to Directory of Current file
@@ -367,29 +330,16 @@ nnoremap <leader>gitipy :-1read $HOME/.vim/.skeleton.py.gitignore
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => You Complete Me
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set completeopt=menuone
-"let g:ycm_add_preview_to_completeopt = 0
-"let g:ycm_auto_hover = -1
-"" let g:ycm_show_diagnostics_ui = 0
-"" set python golbal config path
-"let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-"""let g:ycm_python_interpreter_path = '/usr/bin/python'
-"""let g:ycm_extra_conf_vim_data = [
-"""  \  'g:ycm_python_interpreter_path'
-"""  \]
-"""let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
-"
-"" let g:ycm_show_diagnostics_ui = 0
-""
-"" Inorder to generate c++ config use YcmGenerateConfig
-"
-"nmap <leader>D <plug>(YCMHover)
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => COC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" coc theming
+highlight CocHintFloat ctermfg=15  guifg=#ff0000
+highlight CocErrorFloat ctermfg=15  guifg=#ff0000
+
+" when debuging
+"let $NVIM_COC_LOG_LEVEL='all'
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -467,7 +417,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -550,6 +500,11 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+" Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+
+noremap <F3> <ESC>:Format<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Statusline
