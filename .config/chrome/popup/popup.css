@@ -8,7 +8,7 @@ menupopup menuseparator {
 menupopup,
 panel[type="autocomplete-richlistbox"] {
     -moz-window-shadow: none !important;
-    background: 0 !important;
+    background: 1 !important;
     border: 0 !important;
     color: var(--arrowpanel-color) !important;
     box-sizing: content-box !important;
@@ -239,7 +239,7 @@ menu[container="true"] > .menu-iconic-left > .menu-iconic-icon {
 
 #context-navigation .menu-iconic-left {
     border-radius: 50% !important;
-    padding: 8px !important;
+    padding: 2px !important;
 }
 
 #context-navigation .menu-iconic-icon {
@@ -908,4 +908,3 @@ richlistitem:-moz-any([originaltype="generatedPassword"], [originaltype="loginWi
     .identity-popup-content-blocking-category::after {
         content: url(menu-right-2x.svg) !important;
     }
-}

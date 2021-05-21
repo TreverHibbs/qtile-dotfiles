@@ -9,7 +9,7 @@
 
 .urlbarView-row:hover,
 .urlbarView-row-inner:hover {
-    background: var(--lwt-accent-color) !important;
+    background: var(--lwt-sidebar-background-color) !important;
     background-color: var(--lwt-accent-color) !important;
 }
 
@@ -176,7 +176,7 @@
 #searchbar[focused],
 #searchbar[open] {
     text-align: left;
-    background-color: var(--toolbar-field-focus-background-color) !important;
+    background-color: var(--dark-0) !important;
 }
 
 #urlbar[focused],
@@ -488,7 +488,7 @@
     width: auto !important;
 }
 
-.urlbar-page-action:-moz-any(#reader-mode-button, #pageActionButton, #pocket-button-box, #pageAction-urlbar-screenshots_mozilla_org, #pageAction-urlbar-sendToDevice, #pageAction-urlbar-emailLink, #pageAction-urlbar-copyURL, #pageAction-urlbar-shareURL, #pageAction-urlbar-addSearchEngine) {
+.urlbar-page-actiobackgroundn:-moz-any(#reader-mode-button, #pageActionButton, #pocket-button-box, #pageAction-urlbar-screenshots_mozilla_org, #pageAction-urlbar-sendToDevice, #pageAction-urlbar-emailLink, #pageAction-urlbar-copyURL, #pageAction-urlbar-shareURL, #pageAction-urlbar-addSearchEngine) {
     transition: background-color 0.2s var(--ease-basic), margin 0.15s var(--ease-in), opacity 0.15s var(--ease-basic),
         visibility 0s 4s !important;
     opacity: 0 !important;
