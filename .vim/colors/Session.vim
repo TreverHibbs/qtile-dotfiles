@@ -7,7 +7,8 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 wpggui-theme.vim
+badd +206 wpggui-theme.vim
+badd +0 ~/.cache/wal/colors-wal.vim
 argglobal
 %argdel
 $argadd wpggui-theme.vim
@@ -24,8 +25,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 63 + 104) / 208)
-exe 'vert 2resize ' . ((&columns * 144 + 104) / 208)
+exe 'vert 1resize ' . ((&columns * 162 + 104) / 208)
+exe 'vert 2resize ' . ((&columns * 45 + 104) / 208)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -36,15 +37,15 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+let s:l = 206 - ((32 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+206
 normal! 0
 wincmd w
 argglobal
-if bufexists("wpggui-theme.vim") | buffer wpggui-theme.vim | else | edit wpggui-theme.vim | endif
+if bufexists("~/.cache/wal/colors-wal.vim") | buffer ~/.cache/wal/colors-wal.vim | else | edit ~/.cache/wal/colors-wal.vim | endif
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -54,15 +55,16 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+let s:l = 1 - ((0 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 63 + 104) / 208)
-exe 'vert 2resize ' . ((&columns * 144 + 104) / 208)
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 162 + 104) / 208)
+exe 'vert 2resize ' . ((&columns * 45 + 104) / 208)
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

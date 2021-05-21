@@ -203,6 +203,10 @@ call Coloring("ALEErrorSign", "NONE", color9, "NONE", "NONE", "9")
 call Coloring("ALEWarningSign", "NONE", color11, "NONE", "NONE", "11")
 call Coloring("ALEError", "NONE", color9, "NONE", "NONE", "9")
 call Coloring("ALEWarning", "NONE", color11, "NONE", "NONE", "11")
+" Coc highlights
+call Coloring("CocHintFloat", "NONE", color9, "NONE", "NONE", "9")
+    hi link CocErrorFloat CocHintFloat
+    hi link CocErrorSign CocHintFloat
 
 " }}}
 
