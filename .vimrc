@@ -202,6 +202,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
 Plug 'deviantfero/wpgtk.vim'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 call plug#end()
 
@@ -334,8 +335,8 @@ nnoremap <leader>gitipy :-1read $HOME/.vim/.skeleton.py.gitignore
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " coc theming
-highlight CocHintFloat ctermfg=15  guifg=#ff0000
-highlight CocErrorFloat ctermfg=15  guifg=#ff0000
+"highlight CocHintFloat ctermfg=15  guifg=#ff0000
+"highlight CocErrorFloat ctermfg=15  guifg=#ff0000
 
 " when debuging
 "let $NVIM_COC_LOG_LEVEL='all'
