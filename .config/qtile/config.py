@@ -29,11 +29,56 @@ from typing import List  # noqa: F401
 import os
 import subprocess
 from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
+from time import time
+from pathlib import Path
 
-mod = "mod4"
-terminal = "kitty"
+msansod = "mod4"
+tmod4erminal = "kitty"
+screenshot_dir = "$HOME/Pictures/Screenshots"
+
+# screenshots
+def screenshot(save=True, copy=True, selection=True):
+    def f(_):
+        path = Path.home() / 'Pictures/Screenshots'
+        path /= f'screenshot_{str(int(time() * 100))}.png'
+
+        print("WHY")
+        maim_args = ['-u', '-b', '3', '-m', '5']
+        if selection:
+            maim_args = maim_args + ['-s']
+
+        shot = subprocess.run(['maim', *maim_args], stdout=subprocess.PIPE)
+
+        if save:
+            with open(path, 'wb') as sc:
+                sc.write(shot.stdout)
+
+        if copy:
+            subprocess.run(['xclip', '-selection', 'clipboard', '-t',
+                            'image/png'], input=shot.stdout)
+    return f
+
+
+def copyq():
+    def f(_):
+        subprocess.run(['copyq', 'toggle'])
+
+    return f
+
+
+def shutdown(restart=False):
+    def f(_):
+        shutdown_args = ['now']
+
+        if restart:
+            shutdown_args.insert(0, '-r')
+
+        subprocess.run(['shutdown', *shutdown_args])
+
+    return f
+
 
 keys = [
     # Switch between windows
@@ -98,6 +143,18 @@ keys = [
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+    # screenshot keys
+    Key([], "Print", lazy.function(screenshot(selection=False, copy=False))),
+    Key([mod, "shift"], "c", lazy.function(screenshot(copy=False))),
+    Key([mod, "control"], "c", lazy.function(screenshot(save=False))),
+    # copyq keys
+    # Key([mod], "c", lazy.spawn(copyq())),
+    # power options
+    KeyChord([mod], "p", [
+        Key([], "s", lazy.function(shutdown())),
+        Key([], "r", lazy.function(shutdown(restart=True))),
+        Key([], "l", lazy.shutdown())
+    ])
 ]
 
 colors = []
@@ -179,7 +236,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
+    font="SourceCodePro",
     fontsize=12,
     padding=3,
     foreground=colors[7],
@@ -207,7 +264,7 @@ screens = [
                 widget.WindowName(),
                 widget.Chord(
                     chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
+                        "launch": (colors[11], colors[0]),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
@@ -258,7 +315,9 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-    ]
+        Match(title="copyq"),
+    ],
+    **layout_theme
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
@@ -281,7 +340,7 @@ def autostart():
 # new window subscription
 @hook.subscribe.client_new
 def floating_dialogs(window):
-    copyq = window.window.get_wm_type() == "copyq"
+    copyq = window.window.get_name() == "copyq"
     # transient = window.window.get_wm_transient_for()
     if copyq:
         window.floating = True
