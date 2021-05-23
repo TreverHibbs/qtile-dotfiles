@@ -597,7 +597,7 @@
             null,
             r.a.createElement(un, {{ src: t }}),
             r.a.createElement(ln, {{
-              placeholder: "Always stay clean!",
+              placeholder: "{sp-place-holder}",
               type: "input",
               onKeyUp: function (t) {{
                 return (

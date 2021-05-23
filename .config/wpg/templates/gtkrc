@@ -18,7 +18,7 @@ color13:#895c4c
 color14:#3a9fa4
 color15:#010101
 text_color:#010101
-selected_bg_color:#69dace
+selected_bg_color:#e2cc7e
 selected_fg_color:#010101
 tooltip_bg_color:#e0dfdb
 tooltip_fg_color:#010101
@@ -26,7 +26,7 @@ titlebar_bg_color:#e0dfdb
 titlebar_fg_color:#010101
 menu_bg_color:#e0dfdb
 menu_fg_color:#010101
-link_color:#69dace"
+link_color:#e2cc7e"
 gtk-auto-mnemonics	= 1
 
 # Default Style

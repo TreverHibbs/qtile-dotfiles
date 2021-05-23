@@ -7,3 +7,24 @@ active_tab_font_style   normal
 inactive_tab_foreground {color5}
 inactive_tab_background {color8}
 inactive_tab_font_style normal
+
+foreground   {color15}
+background   {color0}
+cursor       {color15}
+
+color0       {color0}
+color8       {color5}
+color1       {color14}
+color9       {color9}
+color2       {color2}
+color10      {color10}
+color3       {color3}
+color11      {color11}
+color4       {color5}
+color12      {color12}
+color5       {color5}
+color13      {color13}
+color6       {color6}
+color14      {color14}
+color7       {color7}
+color15      {color15}

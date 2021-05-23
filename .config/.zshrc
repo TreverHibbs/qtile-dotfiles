@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# include this so vi mode indicator works
+export RPS1="%{$reset_color%}"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/treverhibbs/.oh-my-zsh"
 
@@ -13,7 +16,7 @@ export TERM=kitty
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -150,7 +153,7 @@ function kts-new() {
 # Not supported in the "fish" shell.
 #(cat ~/.cache/wal/sequences &)
 
-(cat $HOME/.config/wpg/sequences &)
+#(cat $HOME/.config/wpg/sequences &)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -168,3 +171,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+eval spaceship_vi_mode_enable

@@ -34,11 +34,11 @@ from libqtile.lazy import lazy
 from time import time
 from pathlib import Path
 
-msansod = "mod4"
-tmod4erminal = "kitty"
+mod = "mod4"
+terminal = "kitty"
 screenshot_dir = "$HOME/Pictures/Screenshots"
 
-# screenshots
+
 def screenshot(save=True, copy=True, selection=True):
     def f(_):
         path = Path.home() / 'Pictures/Screenshots'
