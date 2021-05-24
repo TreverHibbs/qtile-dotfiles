@@ -1,17 +1,29 @@
-# dotfiles
-My motivation for 
+# Dotfiles
+My primary goal when creating this rice was to take full advantage of the wpgtk tool so that  
+it will be easy for me to change the color theme of my operating system in the future.
+
+Every color in this rice is set by the wpgtk utility.  
+(Except for the tree tab colors those have to be set by a copy and paste.)
 
 # Details
-WM: [Qtile](http://www.qtile.org/)  
-OS: Manjaro  
-Shell: zsh wih [oh my zsh](https://github.com/ohmyzsh/ohmyzsh)  
-Terminal: [kitty](https://github.com/kovidgoyal/kitty)  
-Editor: [Neovim](https://neovim.io/)  
-File Manager: [Thunar](https://wiki.archlinux.org/title/Thunar)  
-Launcher: [rofi](https://github.com/davatorium/rofi)  
-Browser: Firefox  
-Color Palette Manager: [wpgtk](https://github.com/deviantfero/wpgtk)  
-Color Palette Generator: [wal](https://github.com/dylanaraps/pywal)  
+**WM:** [qtile](http://www.qtile.org/)  
+**OS:** Manjaro  
+**Shell:** zsh with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh)    
+**Terminal:** [kitty](https://github.com/kovidgoyal/kitty)  
+**Editor:** [Neovim](https://neovim.io/)  
+**File Manager:** [Thunar](https://wiki.archlinux.org/title/Thunar)  
+**Launcher:** [rofi](https://github.com/davatorium/rofi)   
+**Browser:** firefox   
+**Start Page:** [fluidity](https://github.com/PrettyCoffee/fluidity)  
+**Firefox Theme:** [flying fox](https://flyingfox.netlify.app/)  
+**Color Palette Manager:** [wpgtk](https://github.com/deviantfero/wpgtk)   
+**Color Palette Generator:** [wal](https://github.com/dylanaraps/pywal)  
+**GTK Theme:** [flat color](https://github.com/Misterio77/base16-gtk-flatcolor)  
+**Clipboard Manager:** [copyq](https://hluk.github.io/CopyQ/)  
+**Screenshot Utility:** [maim](https://github.com/naelstrof/maim)  
+
+**Wallpaper:** [image](https://i.imgur.com/LnFOXBB.png) and [collection](https://imgur.com/a/XRAfu?gallery)  
+**Start Page Image:** [image](https://filmschoolrejects.com/wp-content/uploads/2020/06/whisper-of-the-heart.png)
 
 # Install
 Do not try to use the install scripts because they do not work. :(
