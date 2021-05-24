@@ -153,7 +153,10 @@ function kts-new() {
 # Not supported in the "fish" shell.
 #(cat ~/.cache/wal/sequences &)
 
-#(cat $HOME/.config/wpg/sequences &)
+(cat $HOME/.config/wpg/sequences &)
+
+# vivid
+export LS_COLORS="$(vivid generate $HOME/.config/vivid/wpgtk-vivid.yml)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
