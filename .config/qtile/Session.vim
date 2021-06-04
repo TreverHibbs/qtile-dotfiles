@@ -30,8 +30,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 104 + 104) / 208)
-exe 'vert 2resize ' . ((&columns * 103 + 104) / 208)
+exe 'vert 1resize ' . ((&columns * 50 + 104) / 208)
+exe 'vert 2resize ' . ((&columns * 157 + 104) / 208)
 argglobal
 balt /usr/lib/python3.9/site-packages/libqtile/config.py
 setlocal fdm=manual
@@ -75,8 +75,8 @@ keepjumps 268
 normal! 05|
 wincmd w
 2wincmd w
-exe 'vert 1resize ' . ((&columns * 104 + 104) / 208)
-exe 'vert 2resize ' . ((&columns * 103 + 104) / 208)
+exe 'vert 1resize ' . ((&columns * 50 + 104) / 208)
+exe 'vert 2resize ' . ((&columns * 157 + 104) / 208)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

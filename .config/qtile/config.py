@@ -29,7 +29,7 @@ from typing import List  # noqa: F401
 import os
 import subprocess
 from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from time import time
 from pathlib import Path
@@ -163,9 +163,8 @@ cache = "/home/treverhibbs/.cache/wal/colors"
 
 def load_colors(cache):
     with open(cache, "r") as file:
-        for _ in range(14):
+        for _ in range(15):
             colors.append(file.readline().strip())
-    colors.append("#ffffff")
     lazy.reload()
 
 
@@ -173,6 +172,18 @@ load_colors(cache)
 
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 groups = [Group(i) for i in group_names]
+
+groups.append(    
+        ScratchPad("scratchpad", [
+        # define a drop down terminal.
+        # it is placed in the upper third of screen by default.
+        DropDown("term", "kitty", opacity=0.7) ])
+    )
+keys.extend([
+    # Scratchpad
+    # toggle visibiliy of above defined DropDown named "term"
+    Key([mod], 'd', lazy.group['scratchpad'].dropdown_toggle('term')),
+])
 
 
 for i in groups:
@@ -216,7 +227,7 @@ layout_theme = {
     "border_width": 3,
     "margin": 16,
     "border_normal": colors[0],
-    "border_focus": colors[4],
+    "border_focus": colors[6],
 }
 
 layouts = [
@@ -249,15 +260,15 @@ screens = [
             [
                 widget.GroupBox(
                     urgent_alert_method='text',
-                    urgent_border=colors[11],
-                    urgent_text=colors[11],
+                    urgent_border=colors[9],
+                    urgent_text=colors[9],
                     active=colors[7],
                     block_highlight_text_color=colors[10],
                     foreground=colors[14],
                     hide_unused=True,
                     highlight_method='text',
-                    this_current_screen_border=colors[10],
-                    this_screen_border=colors[10],
+                    this_current_screen_border=colors[14],
+                    this_screen_border=colors[14],
                     highlight_color=[colors[14], colors[12]],
                 ),
                 widget.Prompt(),

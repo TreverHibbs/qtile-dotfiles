@@ -16,7 +16,7 @@ panel[type="autocomplete-richlistbox"] {
 
 menupopup {
     padding: 11px 14px 18px !important;
-    margin: -19px -14px 0 !important;
+    margin: 10px 10px 0 !important;
 }
 
 /* needs to align with textbox/bookmark-button but can't overlap it */

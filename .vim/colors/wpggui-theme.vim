@@ -35,8 +35,8 @@ call Coloring("EndOfBuffer", "NONE", color15, "NONE", "NONE", "15")
 call Coloring("NonText", "NONE", color0, "NONE", "NONE", "0")
 call Coloring("Comment", "NONE", color7, "italic", "NONE", "7")
 call Coloring("Constant", "NONE", color11, "NONE", "NONE", "11")
-call Coloring("Error", color11, color15, "NONE", "11", "15")
-call Coloring("Identifier", "NONE", color9, "BOLD", "NONE", "9")
+call Coloring("Error", color1, color9, "NONE", "11", "15")
+call Coloring("Identifier", "NONE", color14, "BOLD", "NONE", "9")
 call Coloring("Ignore", color8, color0, "NONE", "8", "0")
 call Coloring("PreProc", "NONE", color11, "NONE", "NONE", "11")
 call Coloring("Special", "NONE", color14, "NONE", "NONE", "14")
@@ -44,11 +44,11 @@ call Coloring("Statement", "NONE", color9, "NONE", "NONE", "9")
 call Coloring("String", "NONE", color14, "NONE", "NONE", "19")
 call Coloring("Number", "NONE", color11, "NONE", "NONE", "11")
 call Coloring("Todo", color10, color0, "NONE", "10", "0")
-call Coloring("Type", "NONE", color10, "NONE", "NONE", "11")
+call Coloring("Type", "NONE", color12, "NONE", "NONE", "11")
 call Coloring("Underlined", "NONE", color9, "underline", "NONE", "9")
 call Coloring("StatusLine", color0, color0, "NONE", "15", "0")
 call Coloring("StatusLineNC", color0, color0, "NONE", "8", "0")
-call Coloring("TabLine", "NONE", color9, "NONE", "NONE", "8")
+call Coloring("TabLine", "NONE", color12, "NONE", "NONE", "8")
 call Coloring("TabLineFill", "NONE", color8, "NONE", "NONE", "8")
 call Coloring("TabLineSel", color12, color0, "NONE", "12", "0")
 call Coloring("Conceal", color0, color0, "NONE", "0", "0")
@@ -56,8 +56,8 @@ call Coloring("TermCursorNC", color11, color0, "NONE", "11", "0")
 call Coloring("VertSplit", color0, color0, "NONE", "0", "0")
 call Coloring("Title", "NONE", color12, "NONE", "NONE", "12")
 call Coloring("CursorLine", color8, "NONE", "NONE", "8", "NONE")
-call Coloring("LineNr", "NONE", color5, "NONE", "NONE", "8")
-call Coloring("CursorLineNr", "NONE", color5, "NONE", "NONE", "8")
+call Coloring("LineNr", "NONE", color8, "NONE", "NONE", "8")
+call Coloring("CursorLineNr", "NONE", color8, "NONE", "NONE", "8")
 call Coloring("helpLeadBlank", "NONE", color15, "NONE", "NONE", "15")
 call Coloring("helpNormal", "NONE", color15, "NONE", "NONE", "15")
 " TODO check this out later
@@ -70,7 +70,7 @@ call Coloring("PmenuSel", color12, color0, "NONE", "12", "0")
 call Coloring("PmenuThumb", color8, color8, "NONE", "8", "8")
 call Coloring("FoldColumn", "NONE", color15, "NONE", "NONE", "15")
 call Coloring("Folded", color8, color7, "NONE", "8", "7")
-call Coloring("WildMenu", color10, color0, "NONE", "10", "0")
+call Coloring("WildMenu", color6, color0, "NONE", "10", "0")
 call Coloring("SpecialKey", "NONE", color12, "NONE", "NONE", "8")
 call Coloring("DiffAdd", "NONE", color10, "NONE", "NONE", "10")
 call Coloring("DiffChange", "NONE", color12, "NONE", "NONE", "8")
@@ -81,7 +81,7 @@ call Coloring("Search", color11, color0, "NONE", "11", "0")
 
 call Coloring("ColorColumn", color12, color0, "NONE", "12", "0")
 call Coloring("signColumn", "NONE", color12, "NONE", "NONE", "12")
-call Coloring("ErrorMsg", "NONE", color11, "NONE", "NONE", "8")
+call Coloring("ErrorMsg", "NONE", color9, "NONE", "NONE", "8")
 call Coloring("ModeMsg", "NONE", color10, "NONE", "NONE", "10")
 call Coloring("MoreMsg", "NONE", color10, "NONE", "NONE", "10")
 call Coloring("Question", "NONE", color12, "NONE", "NONE", "12")
@@ -108,7 +108,7 @@ call Coloring("Repeat", "NONE", color11, "NONE", "NONE", "11")
 call Coloring("SpecialChar", "NONE", color13, "NONE", "NONE", "13")
 call Coloring("Tag", "NONE", color11, "NONE", "NONE", "11")
 call Coloring("Typedef", "NONE", color11, "NONE", "NONE", "11")
-call Coloring("vimUserCommand", "NONE", color9, "BOLD", "NONE", "9")
+call Coloring("vimUserCommand", "NONE", color11, "BOLD", "NONE", "9")
     hi link vimMap vimUserCommand
     hi link vimLet vimUserCommand
     hi link vimCommand vimUserCommand
@@ -187,7 +187,7 @@ call Coloring("rubyRegexpAnchor", "NONE", color15, "NONE", "NONE", "15")
 call Coloring("pythonOperator", "NONE", color13, "NONE", "NONE", "13")
 call Coloring("pythonFunction", "NONE", color12, "NONE", "NONE", "12")
 call Coloring("pythonRepeat", "NONE", color13, "NONE", "NONE", "13")
-call Coloring("pythonStatement", "NONE", color9, "Bold", "NONE", "9")
+call Coloring("pythonStatement", "NONE", color11, "Bold", "NONE", "9")
 call Coloring("pythonBuiltIn", "NONE", color12, "NONE", "NONE", "12")
 call Coloring("phpMemberSelector", "NONE", color15, "NONE", "NONE", "15")
 call Coloring("phpComparison", "NONE", color15, "NONE", "NONE", "15")
@@ -203,11 +203,59 @@ call Coloring("ALEErrorSign", "NONE", color9, "NONE", "NONE", "9")
 call Coloring("ALEWarningSign", "NONE", color11, "NONE", "NONE", "11")
 call Coloring("ALEError", "NONE", color9, "NONE", "NONE", "9")
 call Coloring("ALEWarning", "NONE", color11, "NONE", "NONE", "11")
-hi link LspDiagnosticsDefaultError ErrorMsg
+" LSP highlights
+    hi link LspDiagnosticsDefaultError ErrorMsg
+call Coloring("LspDiagnosticsDefaultHint", "NONE", color8, "NONE", "NONE", "8")
+call Coloring("LspDiagnosticsDefaultWarning", "NONE", color12, "NONE", "NONE", "12")
+call Coloring("LspDiagnosticsDefaultInformation", "NONE", color8, "NONE", "NONE", "8")
+call Coloring("LspDiagnosticsUnderlineError", "NONE", "NONE", "underline", "NONE", "NONE")
+call Coloring("LspDiagnosticsUnderlineWarning", "NONE", "NONE", "underline", "NONE", "NONE")
+call Coloring("LspDiagnosticsUnderlineInformation", "NONE", "NONE", "underline", "NONE", "NONE")
+call Coloring("LspDiagnosticsUnderlineHint", "NONE", "NONE", "underline", "NONE", "NONE")
+" lspsaga
+call Coloring("LspSagaFinderSelection", "NONE", color10, "NONE", "NONE", "10")
+call Coloring("LspFloatWinNormal", "NONE", color15, "NONE", "NONE", "6")
+call Coloring("LspFloatWinBorder", "NONE", color6, "NONE", "NONE", "6")
+call Coloring("LspSagaBorderTitle", "NONE", color14, "NONE", "NONE", "14")
+call Coloring("TargetWord", "NONE", color8, "NONE", "NONE", "8")
+call Coloring("TargetFileName", "NONE", color8, "NONE", "NONE", "8")
+call Coloring("DefinitionIcon", "NONE", color14, "NONE", "NONE", "14")
+    hi link ReferencesIcon DefinitionIcon
+call Coloring("ProviderTruncateLine", "NONE", color6, "NONE", "NONE", "6")
 " Coc highlights
 call Coloring("CocHintFloat", "NONE", color9, "NONE", "NONE", "9")
+call Coloring("LspSagaCodeActionTitle", "NONE", color14, "NONE", "NONE", "14")
     hi link CocErrorFloat CocHintFloat
     hi link CocErrorSign CocHintFloat
+call Coloring("LspSagaRenamePromptPrefix", "NONE", color14, "NONE", "NONE", "14")
+    hi link LspSagaCodeActionTitle LspFloatWinBorder
+    hi link LspFloatWinBorder LspFloatWinBorder
+    hi link LspSagaSignatureHelpBorder LspFloatWinBorder
+    hi link LspSagaCodeActionBorder LspFloatWinBorder
+    hi link LspSagaDefPreviewBorder LspFloatWinBorder
+    hi link LspLinesDiagBorder LspFloatWinBorder
+    hi link LspSagaAutoPreview LspFloatWinBorder
+call Coloring("DiagnosticTruncateLine", "NONE", color6, "NONE", "NONE", "6")
+call Coloring("DiagnosticError", "NONE", color9, "NONE", "NONE", "9")
+call Coloring("DiagnosticWarning", "NONE", color11, "NONE", "NONE", "11")
+call Coloring("DiagnosticInformation", "NONE", color8, "NONE", "NONE", "8")
+call Coloring("DiagnosticHint", "NONE", color8, "NONE", "NONE", "8")
+call Coloring("SagaShadow", "NONE", color7, "NONE", "NONE", "7")
+call Coloring("LspSagaFinderSelection", "NONE", color10, "NONE", "NONE", "10")
+call Coloring("DiagnosticTruncateLine", "NONE", color6, "NONE", "NONE", "6")
+call Coloring("DefinitionPreviewTitle", "NONE", color14, "NONE", "NONE", "14")
+    hi link LspSagaShTruncateLine DiagnosticTruncateLine
+    hi link LspSagaDocTruncateLine DiagnosticTruncateLine
+    hi link LineDiagTuncateLine DiagnosticTruncateLine
+    hi link LspSagaCodeActionTruncateLine DiagnosticTruncateLine
+    hi link LspSagaCodeActionTruncateLine DiagnosticTruncateLine
+call Coloring("LspSagaCodeActionContent", "NONE", color14, "NONE", "NONE", "14")
+
+
+" json
+hi link jsonCommentError Comment
+hi link jsonNoQuotesError Comment
+hi link jsonStringSQError Comment
 
 " }}}
 

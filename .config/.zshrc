@@ -138,14 +138,31 @@ alias vim="nvim"
 export KITTY_SESSIONS=/home/treverhibbs/.config/kitty/sessions
 # Kitty functions
 function kts() {
-    kitty --session $KITTY_SESSIONS/$1.conf &!
-    # kill -9 $PPID
+    kitty --session $KITTY_SESSIONS/$1 &!
+}
+
+_fzf_complete_kts() {
+  _fzf_complete --reverse --prompt="session> " -- "$@" < <(
+    ls $KITTY_SESSIONS
+  )
 }
 
 function kts-new() {
     cp $KITTY_SESSIONS/default.conf $KITTY_SESSIONS/$1.conf
     vim $KITTY_SESSIONS/$1.conf
 }
+
+alias kts-edit="nvim \$KITTY_SESSIONS/\$(ls \$KITTY_SESSIONS | fzf --reverse)"
+
+function kitty-conf() {
+    vim ~/.config/kitty/kitty.conf
+}
+
+function zsh-conf() {
+    vim ~/.zshrc
+}
+
+source ~/.config/zsh/zsh-interactive-cd.plugin.zsh
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.

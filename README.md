@@ -9,7 +9,7 @@ Every color in this rice is set by the wpgtk utility.
 **OS:** Manjaro  
 **Shell:** zsh with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) and [spaceship](https://github.com/denysdovhan/spaceship-prompt) prompt  
 **Terminal:** [kitty](https://github.com/kovidgoyal/kitty)  
-**Editor:** [Neovim](https://neovim.io/) with slightly customized [wpgtk theme](https://github.com/deviantfero/wpgtk.vim)  
+**Editor:** [Neovim](https://neovim.io/) with slightly customized [wpgtk theme](https://github.com/deviantfero/wpgtk.vim) that I made compatible with neovim true colors.  
 **File Manager:** [Thunar](https://wiki.archlinux.org/title/Thunar)  
 **Launcher:** [rofi](https://github.com/davatorium/rofi)   
 **Browser:** firefox   
